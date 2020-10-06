@@ -6,15 +6,19 @@ app = Flask(__name__)
 
 @app.route('/')
 def verificacao():
-    lim = 100
-    primos = "2,"
-    for n in range(3, lim + 1):
+    lim = 99
+    primos = "2<br>"
+    contadora = 1
+    n = 3
+    while contadora < lim:
         divisores = []
+        n = n + 1
         for p in range(1, n + 1):
             if n % p == 0:
                 divisores += [p]
         if len(divisores) == 2:
-            primos = primos + str(n) + ","
+            primos = primos + str(n) + "<br>"
+            contadora = contadora + 1
     return primos
 
 
